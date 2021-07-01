@@ -1099,6 +1099,9 @@ MonoBehaviour:
   allPrompts:
   - {fileID: 11400000, guid: 011c0d0d1b39353448c0149eb836f189, type: 2}
   - {fileID: 11400000, guid: a764fb5421285a048a501d92049e9a4f, type: 2}
+  - {fileID: 11400000, guid: bb459705cb0f8d644890ca5e98720d18, type: 2}
+  - {fileID: 11400000, guid: 0527381c42aaf084f88812fbfd74ab78, type: 2}
+  - {fileID: 11400000, guid: 8e626f942a4c14b4584bf5c20a020fc3, type: 2}
 --- !u!1 &1235755424
 GameObject:
   m_ObjectHideFlags: 0

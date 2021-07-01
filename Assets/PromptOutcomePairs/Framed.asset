@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 138faff84f19c4f498af5e6744c64c11, type: 3}
-  m_Name: Who You Are In The Dark
+  m_Name: Framed
   m_EditorClassIdentifier: 
-  title: Who You Are In The Dark
-  prompt: You have an opportunity to kill a villain in a way that nobody would ever
-    find out about.
+  title: Framed
+  prompt: An anonymous individual commited a crime while disguised as you
   image: {fileID: 0}
   repeatable: 0
   prerequisites: []
-  leftOption: Show Mercy
-  leftOutcome: Show Mercy Placeholder Outcome
-  leftUnlocks: []
-  rightOption: No Mercy
-  rightOutcome: No Mercy Placeholder Outcome
-  rightUnlocks: []
+  leftOption: Tell the public that it wasn't you
+  leftOutcome: They demand proof.
+  leftUnlocks:
+  - misdirectedPublicOutrage
+  rightOption: Hunt down the imposter
+  rightOutcome: You begin to follow the trail.
+  rightUnlocks:
+  - trackingImposter

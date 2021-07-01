@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DeckManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class DeckManager : MonoBehaviour
 
     bool isOutcomeShowing = false;
     PromptOutcomePair currentPrompt;
+    List<string> flags = new List<string>();
 
     private void Start()
     {
@@ -37,7 +39,8 @@ public class DeckManager : MonoBehaviour
         }
         else
         {
-            // TODO: Set story flags
+            // Set story flags
+
             // TODO: Change resources
 
             // Reveal outcome card
@@ -46,10 +49,12 @@ public class DeckManager : MonoBehaviour
             // Animate
             if (choice == "left")
             {
+                flags.AddRange(currentPrompt.leftUnlocks);
                 promptCard.GetComponent<Animator>().Play("CardSwipeLeft");
             }
             else if (choice == "right")
             {
+                flags.AddRange(currentPrompt.rightUnlocks);
                 promptCard.GetComponent<Animator>().Play("CardSwipeRight");
             }
 
@@ -63,8 +68,11 @@ public class DeckManager : MonoBehaviour
         List<PromptOutcomePair> validPrompts = new List<PromptOutcomePair>();
         foreach (PromptOutcomePair prompt in allPrompts)
         {
-            // TODO: Check each prompt against story flags
-            validPrompts.Add(prompt);
+            // If prompt has no prerequisites or all prerequisites are met
+            if (prompt.prerequisites.Count() == 0 || prompt.prerequisites.Intersect(flags).Count() == prompt.prerequisites.Count())
+            {
+                validPrompts.Add(prompt);
+            }
         }
 
         // Picks which prompt to show next
