@@ -82,7 +82,13 @@ public class DeckManager : MonoBehaviour
         // Reveal next prompt
         promptCard.GetComponent<PromptCard>().SetData(currentPrompt);
 
-        // TODO: Stop unrepeatable prompts from showing up twice.
+        // Stop unrepeatable prompts from showing up twice.
+        if (!currentPrompt.repeatable)
+        {
+            // This will cause issues if we ever have another reason to loop over allPrompts,
+            // but I don't see that happening.
+            allPrompts.Remove(currentPrompt);
+        }
     }
 }
 
